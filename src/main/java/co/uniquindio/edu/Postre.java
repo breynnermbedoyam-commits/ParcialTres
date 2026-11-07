@@ -36,7 +36,7 @@ public class Postre extends Producto {
     public void setRequiereRefrigeracion(boolean requiereRefrigeracion) {
         this.requiereRefrigeracion = requiereRefrigeracion;
     }
-    /** Postre: 15 % de incremento + 5 % adicional del precio base si requiere refrigeracion. */
+
     @Override
     public double calcularPrecioVenta() {
         double precio = getPrecioBase() * 1.15;
@@ -46,7 +46,7 @@ public class Postre extends Producto {
         return precio;
     }
 
-    /** Peso 80-500 g; con refrigeracion 0-6 C, sin refrigeracion 15-30 C. */
+
     @Override
     public boolean cumpleCondicionesCalidad() {
         boolean pesoValido = pesoGramos >= 80 && pesoGramos <= 500;

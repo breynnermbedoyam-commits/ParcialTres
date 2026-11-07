@@ -45,4 +45,14 @@ public class Domicilio {
     public void setAceptado(boolean aceptado) {
         this.aceptado = aceptado;
     }
+    public boolean solicitarServicio() {
+        aceptado = empresa != null && empresa.aceptarServicio(distanciaKm);
+        costo = aceptado ? empresa.calcularCosto(distanciaKm) : 0;
+        return aceptado;
+    }
+
+    public double calcularCosto() {
+        return empresa.calcularCosto(distanciaKm);
+    }
 }
+

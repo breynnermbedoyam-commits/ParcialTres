@@ -67,4 +67,14 @@ public class ReporteVentas {
     public void setIngresosPorCategoria(Map<String, Double> ingresosPorCategoria) {
         this.ingresosPorCategoria = ingresosPorCategoria;
     }
+    @Override
+    public String toString() {
+        return "REPORTE DE VENTAS\n"
+                + "Ingresos del restaurante: $" + ingresosRestaurante + "\n"
+                + "Cobrado por domicilios (no es ingreso del restaurante): $" + ingresosDomicilios + "\n"
+                + "Producto mas vendido: " + (productoMasVendido == null ? "N/A"
+                : productoMasVendido.getNombre() + " (" + unidadesProductoMasVendido + " unidades)") + "\n"
+                + "Categoria con mayores ingresos: " + (categoriaMayorIngresos == null ? "N/A" : categoriaMayorIngresos) + "\n"
+                + "Ingresos por categoria: " + ingresosPorCategoria;
+    }
 }

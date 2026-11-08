@@ -68,4 +68,15 @@ public class Cliente {
     public void setHistorialPedidos(List<Pedido> historialPedidos) {
         this.historialPedidos = historialPedidos;
     }
+    /** Agrega un pedido confirmado al historial evitando repetidos. */
+    public void agregarPedido(Pedido pedido) {
+        if (pedido != null && !historialPedidos.contains(pedido)) {
+            historialPedidos.add(pedido);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return documento + " - " + nombreCompleto;
+    }
 }

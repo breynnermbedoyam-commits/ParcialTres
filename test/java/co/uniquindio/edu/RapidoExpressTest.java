@@ -50,3 +50,4 @@ class RapidoExpressTest {
         assertEquals(1500.0, empresa.getTarifaPorKm(), 0.001);
         assertEquals(12.0, empresa.getMaxKm(), 0.001);
     }
+}

@@ -55,4 +55,16 @@ public abstract class Producto {
     public void setTiempoPreparacion(int tiempoPreparacion) {
         this.tiempoPreparacion = tiempoPreparacion;
     }
+
+    /** Precio final de venta segun la categoria del producto. */
+    public abstract double calcularPrecioVenta();
+
+    /** Indica si el producto cumple las condiciones de calidad. */
+    public abstract boolean cumpleCondicionesCalidad();
+
+    @Override
+    public String toString() {
+        return codigo + " - " + nombre + " ($" + calcularPrecioVenta() + ")";
+    }
+
 }

@@ -35,4 +35,26 @@ public class RapidoExpress implements EmpresaDomicilio {
     public void setMaxKm(double maxKm) {
         this.maxKm = maxKm;
     }
+
+    @Override
+    public String getNombre() {
+        return "RapidoExpress";
+    }
+
+    @Override
+    public boolean aceptaDistancia(double km) {
+        return km > 0 && km <= maxKm;
+    }
+
+    /** $5.000 base + $1.500 por kilometro. */
+    @Override
+    public double calcularCosto(double km) {
+        return tarifaBase + (tarifaPorKm * km);
+    }
+
+    @Override
+    public boolean aceptarServicio(double km) {
+        return aceptaDistancia(km);
+    }
+
 }

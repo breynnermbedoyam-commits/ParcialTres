@@ -36,4 +36,23 @@ public class Postre extends Producto {
     public void setRequiereRefrigeracion(boolean requiereRefrigeracion) {
         this.requiereRefrigeracion = requiereRefrigeracion;
     }
+
+    @Override
+    public double calcularPrecioVenta() {
+        double precio = getPrecioBase() * 1.15;
+        if (requiereRefrigeracion) {
+            precio += getPrecioBase() * 0.05;
+        }
+        return precio;
+    }
+
+
+    @Override
+    public boolean cumpleCondicionesCalidad() {
+        boolean pesoValido = pesoGramos >= 80 && pesoGramos <= 500;
+        boolean temperaturaValida = requiereRefrigeracion
+                ? (temperaturaAlmacenamiento >= 0 && temperaturaAlmacenamiento <= 6)
+                : (temperaturaAlmacenamiento >= 15 && temperaturaAlmacenamiento <= 30);
+        return pesoValido && temperaturaValida;
+    }
 }
